@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'navigation.html' %}
+
+<div class="container mt-5 pt-5">
+    <h2 class="text-center mb-5 display-6 fw-bold">Administration Dashboard</h2>
+    
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card bg-primary text-white shadow border-0">
+                <div class="card-body py-4">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h4 class="mb-0">Doctors</h4>
+                            <h2 class="display-4 fw-bold">{{ d_count }}</h2>
+                        </div>
+                        <i class="fas fa-user-md fa-4x opacity-50"></i>
+                    </div>
+                    <a href="{% url 'view_doctor' %}" class="text-white text-decoration-none small">View list <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow border-0 text-white" style="background-color: #fd7e14;"> 
+                <div class="card-body py-4">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h4 class="mb-0">Nurses</h4>
+                            <h2 class="display-4 fw-bold">{{ n_count }}</h2>
+                        </div>
+                        <i class="fas fa-user-nurse fa-4x opacity-50"></i>
+                    </div>
+                    <a href="{% url 'view_nurse' %}" class="text-white text-decoration-none small">View list <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow border-0 text-white" style="background-color: #6f42c1;"> 
+                <div class="card-body py-4">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h4 class="mb-0">Pairs</h4>
+                            <h2 class="display-4 fw-bold">{{ binome_count }}</h2>
+                        </div>
+                        <i class="fas fa-users fa-4x opacity-50"></i>
+                    </div>
+                    <span class="small">Doctors with assistants</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="card bg-success text-white shadow border-0">
+                <div class="card-body py-4">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h4 class="mb-0">Patients</h4>
+                            <h2 class="display-4 fw-bold">{{ p_count }}</h2>
+                        </div>
+                        <i class="fas fa-hospital-user fa-4x opacity-50"></i>
+                    </div>
+                    <a href="{% url 'view_patient' %}" class="text-white text-decoration-none small">View list <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="card bg-info text-white shadow border-0">
+                <div class="card-body py-4">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h4 class="mb-0">Appointments</h4>
+                            <h2 class="display-4 fw-bold">{{ a_count }}</h2>
+                        </div>
+                        <i class="fas fa-calendar-check fa-4x opacity-50"></i>
+                    </div>
+                    <a href="{% url 'view_appointment' %}" class="text-white text-decoration-none small">View calendar <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

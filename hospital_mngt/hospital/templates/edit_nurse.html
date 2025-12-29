@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'navigation.html' %}
+
+<div class="container mt-5 pt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-warning text-dark text-center py-3">
+                    <h3 class="mb-0"><i class="fas fa-user-nurse me-2"></i>Edit Nurse Information</h3>
+                </div>
+                <div class="card-body p-4">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Full Name</label>
+                            <input type="text" name="name" class="form-control" value="{{ nurse.name }}" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Mobile Number</label>
+                            <input type="text" name="mobile" class="form-control" value="{{ nurse.mobile }}" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Specialty</label>
+                            <input type="text" name="special" class="form-control" value="{{ nurse.special }}" required>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-warning fw-bold">Update Nurse</button>
+                            <a href="{% url 'view_nurse' %}" class="btn btn-outline-secondary">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'navigation.html' %}
+
+<div class="container mt-5 pt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="card shadow-lg border-0 animate__animated animate__fadeIn">
+                <div class="card-header bg-warning text-dark text-center py-3">
+                    <h3 class="mb-0"><i class="fas fa-edit me-2"></i>Edit Appointment</h3>
+                </div>
+                
+                <div class="card-body p-4">
+                    <form method="POST">
+                        {% csrf_token %}
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold">Doctor</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-user-md"></i></span>
+                                    <select name="doctor" class="form-select" required>
+                                        {% for d in doctors %}
+                                            <option value="{{ d.id }}" {% if d.id == appointment.doctor.id %}selected{% endif %}>
+                                                Dr. {{ d.name }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold">Assisting Nurse</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-user-nurse"></i></span>
+                                    <select name="nurse" class="form-select" required>
+                                        {% for n in nurses %}
+                                            <option value="{{ n.id }}" {% if n.id == appointment.nurse.id %}selected{% endif %}>
+                                                {{ n.name }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Patient</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-hospital-user"></i></span>
+                                <select name="patient" class="form-select" required>
+                                    {% for p in patients %}
+                                        <option value="{{ p.id }}" {% if p.id == appointment.patient.id %}selected{% endif %}>
+                                            {{ p.name }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold">Date</label>
+                                <input type="date" name="date" class="form-control" value="{{ appointment.date|date:'Y-m-d' }}" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold">Time</label>
+                                <input type="time" name="time" class="form-control" value="{{ appointment.time|time:'H:i' }}" required>
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2 mt-3">
+                            <button type="submit" class="btn btn-warning btn-lg shadow fw-bold">
+                                <i class="fas fa-save me-2"></i>Update Appointment
+                            </button>
+                            <a href="{% url 'view_appointment' %}" class="btn btn-outline-secondary">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

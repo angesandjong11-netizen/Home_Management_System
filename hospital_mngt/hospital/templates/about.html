@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="about-section py-5 mb-5 shadow-sm" style="background: linear-gradient(rgba(0, 123, 255, 0.8), rgba(0, 123, 255, 0.8)), url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); background-size: cover; background-position: center; color: white; text-align: center;">
+    <div class="container py-5">
+        <h1 class="display-4 fw-bold">About HMS</h1>
+        <p class="lead fs-4">An innovative solution for simplified and human-centered hospital management.</p>
+    </div>
+</div>
+
+<div class="container mb-5">
+    <div class="row align-items-center mb-5">
+        <div class="col-md-6">
+            <h2 class="fw-bold text-primary mb-3">Our Mission</h2>
+            <p class="text-muted fs-5">
+                Since our inception, our goal has been to provide healthcare facilities with high-performance digital tools to optimize the care pathway. 
+                <strong>HMS (Hospital Management System)</strong> enables perfect coordination between doctors, administration, and patients.
+            </p>
+            <p class="text-muted">
+                We believe that technology should serve humanity. By automating administrative tasks, we allow healthcare providers to focus on what matters most: <strong>their patients' health.</strong>
+            </p>
+        </div>
+        <div class="col-md-6">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Hospital" class="img-fluid rounded shadow">
+        </div>
+    </div>
+
+    <h2 class="text-center fw-bold mb-5">Our Leadership Team</h2>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100 text-center p-3">
+                <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=200&w=200" class="rounded-circle mx-auto mt-3" style="width: 150px; height: 150px; object-fit: cover;" alt="CEO">
+                <div class="card-body">
+                    <h4 class="fw-bold">Jane Doe</h4>
+                    <p class="text-primary fw-bold">Founder & CEO</p>
+                    <p class="card-text text-muted small">Public health expert with over 15 years of experience in the digital transformation of hospitals.</p>
+                    <div class="d-flex justify-content-center gap-3 mt-3 text-primary">
+                        <i class="fab fa-linkedin fa-lg"></i>
+                        <i class="fab fa-twitter fa-lg"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100 text-center p-3">
+                <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=200&w=200" class="rounded-circle mx-auto mt-3" style="width: 150px; height: 150px; object-fit: cover;" alt="CTO">
+                <div class="card-body">
+                    <h4 class="fw-bold">Mike Ross</h4>
+                    <p class="text-primary fw-bold">Chief Technical Officer</p>
+                    <p class="card-text text-muted small">Passionate about software architecture and medical data security.</p>
+                    <div class="d-flex justify-content-center gap-3 mt-3 text-primary">
+                        <i class="fab fa-linkedin fa-lg"></i>
+                        <i class="fab fa-twitter fa-lg"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100 text-center p-3">
+                <img src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=200&w=200" class="rounded-circle mx-auto mt-3" style="width: 150px; height: 150px; object-fit: cover;" alt="Lead Designer">
+                <div class="card-body">
+                    <h4 class="fw-bold">Sarah Jenkins</h4>
+                    <p class="text-primary fw-bold">Product Manager</p>
+                    <p class="card-text text-muted small">Ensures that the user interface is as intuitive as possible for both doctors and patients.</p>
+                    <div class="d-flex justify-content-center gap-3 mt-3 text-primary">
+                        <i class="fab fa-linkedin fa-lg"></i>
+                        <i class="fab fa-twitter fa-lg"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

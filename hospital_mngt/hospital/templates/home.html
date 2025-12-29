@@ -1,0 +1,73 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block content %}
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content text-center">
+            <h1 class="animate__animated animate__fadeInDown fw-bold">HOSPITAL MANAGEMENT SYSTEM</h1>
+            <p class="lead animate__animated animate__fadeInUp mb-4">
+                Manage your hospital with efficiency. Administration, Doctors, Patients—everything is centralized.
+            </p>
+            
+            <div class="d-flex justify-content-center gap-3 animate__animated animate__zoomIn">
+                {% if not request.user.is_authenticated %}
+                    <a class="btn btn-primary btn-lg px-4" href="{% url 'login' %}" role="button">
+                        <i class="fas fa-user-shield me-2"></i>Admin Login
+                    </a>
+                    <a class="btn btn-outline-light btn-lg px-4" href="{% url 'contact' %}" role="button">
+                        <i class="fas fa-envelope me-2"></i>Contact Us
+                    </a>
+                {% else %}
+                    <a class="btn btn-success btn-lg px-4" href="{% url 'index' %}" role="button">
+                        <i class="fas fa-tachometer-alt me-2"></i>Access Dashboard
+                    </a>
+                    <a class="btn btn-outline-light btn-lg px-4" href="{% url 'contact' %}" role="button">
+                        <i class="fas fa-envelope me-2"></i>Contact Us
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    <div class="container mt-5 mb-5">
+        <h2 class="text-center mb-5 display-5 fw-bold">Our Services and Features</h2>
+        <div class="row text-center g-4">
+            <div class="col-md-4">
+                <div class="info-card p-4 shadow-sm border rounded">
+                    <i class="icon fas fa-user-md fa-3x text-primary mb-3"></i>
+                    <h3>Doctor Management</h3>
+                    <p>Add, edit, and view medical professional information.</p>
+                    <a href="{% url 'view_doctor' %}" class="btn btn-outline-primary btn-sm mt-3">Manage Doctors</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-card p-4 shadow-sm border rounded">
+                    <i class="icon fas fa-hospital-user fa-3x text-success mb-3"></i>
+                    <h3>Patient Management</h3>
+                    <p>Track, manage, and view comprehensive patient records.</p>
+                    <a href="{% url 'view_patient' %}" class="btn btn-outline-primary btn-sm mt-3">Manage Patients</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-card p-4 shadow-sm border rounded">
+                    <i class="icon fas fa-calendar-alt fa-3x text-info mb-3"></i>
+                    <h3>Appointments</h3>
+                    <p>Schedule, manage, and view the appointment calendar.</p>
+                    <a href="{% url 'view_appointment' %}" class="btn btn-outline-primary btn-sm mt-3">View Schedule</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="bg-light py-5">
+        <div class="container text-center">
+            <h2 class="display-5 fw-bold mb-4">A Comprehensive Management System</h2>
+            <p class="lead">Optimize the daily operations of your healthcare facility.</p>
+            <a class="btn btn-info btn-lg mt-3 text-white" href="{% url 'about' %}" role="button">
+                <i class="fas fa-question-circle me-2"></i>Discover "About Us"
+            </a>
+        </div>
+    </section>
+
+{% endblock content %}

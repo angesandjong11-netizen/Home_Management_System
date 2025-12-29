@@ -1,0 +1,88 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="{% url 'home' %}">
+        <i class="fas fa-hospital-alt me-2 text-primary"></i>HMS
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center"> 
+        
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}">About us</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+        </li>
+
+        {% if request.user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link fw-bold text-info" href="{% url 'index' %}">
+                  <i class="fas fa-chart-line me-1"></i>Dashboard
+                </a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="docDrop" data-bs-toggle="dropdown">
+                Doctors
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark shadow">
+                <li><a class="dropdown-item" href="{% url 'view_doctor' %}">View Doctors</a></li>
+                <li><a class="dropdown-item" href="{% url 'add_doctor' %}">Add Doctor</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="nurseDrop" data-bs-toggle="dropdown">
+                    Nurses
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark shadow">
+                    <li><a class="dropdown-item" href="{% url 'view_nurse' %}">View Nurse</a></li>
+                    <li><a class="dropdown-item" href="{% url 'add_nurse' %}">Add Nurse</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="patDrop" data-bs-toggle="dropdown">
+                Patients
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark shadow">
+                <li><a class="dropdown-item" href="{% url 'view_patient' %}">View Patients</a></li>
+                <li><a class="dropdown-item" href="{% url 'add_patient' %}">Add Patient</a></li>
+              </ul>
+            </li> 
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="appDrop" data-bs-toggle="dropdown">
+                Appointment
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark shadow">
+                <li><a class="dropdown-item" href="{% url 'view_appointment' %}">Calendar</a></li>
+                <li><a class="dropdown-item" href="{% url 'add_appointment' %}">Take Appointment</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item ms-lg-3">
+              <a class="btn btn-danger btn-sm px-3 rounded-pill shadow-sm" href="{% url 'logout_admin' %}">
+                Disconnexion
+              </a>
+            </li>
+        
+        {% else %}
+            <li class="nav-item ms-lg-3">
+              <a class="btn btn-primary btn-sm px-4 rounded-pill shadow-lg fw-bold" href="{% url 'login' %}">
+                Access Admin
+              </a> 
+            </li>
+        {% endif %}
+
+      </ul>
+    </div>
+  </div>
+</nav>

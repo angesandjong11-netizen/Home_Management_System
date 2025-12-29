@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'navigation.html' %}
+
+<div class="container mt-5 pt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-primary text-white text-center py-3">
+                    <h3 class="mb-0"><i class="fas fa-user-md me-2"></i>Add New Doctor</h3>
+                </div>
+                
+                <div class="card-body p-4">
+                    <form method="POST">
+                        {% csrf_token %}
+                        
+                        <div class="mb-3">
+                            <label for="name" class="form-label fw-bold">Full Name</label>
+                            <input type="text" class="form-control" name="name" id="name" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="mobile" class="form-label fw-bold">Mobile Number</label>
+                            <input type="text" class="form-control" name="mobile" id="mobile" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="special" class="form-label fw-bold">Specialty</label>
+                            <input type="text" class="form-control" name="special" id="special" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="salary" class="form-label fw-bold">Salary</label>
+                            <input type="number" step="0.01" class="form-control" name="salary" id="salary" required>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="nurse" class="form-label fw-bold">Assign a Nurse (Optional)</label>
+                            <select name="nurse" id="nurse" class="form-select">
+                                <option value="" selected>--- None ---</option>
+                                {% for n in nurses %}
+                                    <option value="{{ n.id }}">{{ n.name }} ({{ n.special }})</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-success btn-lg shadow">Save Doctor</button>
+                            <a href="{% url 'view_doctor' %}" class="btn btn-outline-secondary">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    /* Supprime les espaces blancs autour de la page */
+    body, html {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    .landing-page {
+        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                    url('https://images.unsplash.com/photo-1512678080530-7760d81faba6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed; /* L'image reste fixe lors du scroll */
+        
+        /* Utilise toute la largeur et la hauteur disponible */
+        width: 100vw;
+        height: 100vh;
+        
+        /* Centre le contenu */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        color: white;
+        text-align: center;
+        
+        /* Ajustement si vous avez une navbar fixe */
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+    .content-box {
+        position: relative;
+        z-index: 2;
+        padding: 20px;
+    }
+</style>
+
+<div class="landing-page">
+    <div class="content-box animate__animated animate__fadeInDown">
+        <i class="fas fa-hospital-symbol fa-5x text-info mb-4"></i>
+        <h1 class="display-2 fw-bold">HOSPITAL MANAGEMENT SYSTEM</h1>
+        <p class="lead fs-3 mb-5">Professional health and patient management solution..</p>
+        
+        <a href="{% url 'login' %}" class="btn btn-primary btn-lg px-5 py-3 rounded-pill fw-bold shadow-lg">
+            <i class="fas fa-user-lock me-2"></i>ACCESS ADMIN
+        </a>
+    </div>
+</div>
+{% endblock %}
